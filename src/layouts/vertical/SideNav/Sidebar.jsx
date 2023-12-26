@@ -22,11 +22,12 @@ function Sidebar({menuItems}) {
 
     return (
       <Collapse isOpen={openItems.includes(parentId)}>
-        <ul className="nav flex-column sub-menu">
+      <ul className="nav nav-sm flex-column test">
           {childItems.map((childItem, key) => (
-            <li key={key} className="child-item">
+            <li key={key} className="nav-item">
               <a
                 href={childItem.link}
+                className="nav-link"
                 onClick={(e) => {
                   e.preventDefault();
                   toggleItem(childItem.id);
@@ -71,11 +72,12 @@ function Sidebar({menuItems}) {
 
     return (
       <Collapse isOpen={openItems.includes(parentId)}>
-        <ul className="nav flex-column sub-menu">
+        <ul className="nav nav-sm flex-column test">
           {subItems.map((subItem, key) => (
-            <li key={key} className="sub-item">
+            <li key={key} className="nav-item">
               <a
                 href={subItem.link}
+                className="nav-link"
                 onClick={(e) => {
                   e.preventDefault();
                   toggleItem(subItem.id);
@@ -118,12 +120,14 @@ function Sidebar({menuItems}) {
         {menuItems.map((item, key) => (
           <React.Fragment key={key}>
             {item.isHeader ? (
-              <li className="sidebar-header">{item.label}</li>
+              <li className="menu-title">
+              <span data-key="t-menu">{item.label} </span>
+            </li>
             ) : (
               <li className="sidebar-item">
-                <a href="#" onClick={() => toggleItem(item.id)}>
+                <a href="#"  className="nav-link menu-link" onClick={() => toggleItem(item.id)}>
                   <i className={`ri ${item.icon} mx-2`}></i>
-                  {item.label}
+                  <span data-key="t-apps"> {item.label}</span>
                   {item.badgeName && (
                     <span
                       className={
