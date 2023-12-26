@@ -39,8 +39,7 @@ function Sidebar({menuItems}) {
                   <span
                     className={
                       "badge badge-pill bg-" +
-                      childItem.badgeColor +
-                      " float-end"
+                      childItem.badgeColor 
                     }
                     data-key="t-new"
                   >
@@ -53,7 +52,7 @@ function Sidebar({menuItems}) {
                       openItems.includes(childItem.id)
                         ? "ri-arrow-drop-down-line"
                         : "ri-arrow-drop-right-line"
-                    } float-end`}
+                    } svg-end`}
                   ></i>
                 )}
               </a>
@@ -89,7 +88,7 @@ function Sidebar({menuItems}) {
                 {subItem.badgeName && (
                   <span
                     className={
-                      "badge badge-pill bg-" + subItem.badgeColor + " float-end"
+                      "badge badge-pill bg-" + subItem.badgeColor 
                     }
                     data-key="t-new"
                   >
@@ -102,7 +101,7 @@ function Sidebar({menuItems}) {
                       openItems.includes(subItem.id)
                         ? "ri-arrow-drop-down-line"
                         : "ri-arrow-drop-right-line"
-                    } float-end`}
+                    } svg-end`}
                   ></i>
                 )}
               </a>
@@ -131,7 +130,7 @@ function Sidebar({menuItems}) {
                   {item.badgeName && (
                     <span
                       className={
-                        "badge badge-pill bg-" + item.badgeColor + " float-end"
+                        "badge badge-pill bg-" + item.badgeColor
                       }
                       data-key="t-new"
                     >
@@ -144,7 +143,7 @@ function Sidebar({menuItems}) {
                         openItems.includes(item.id)
                           ? "ri-arrow-drop-down-line"
                           : "ri-arrow-drop-right-line"
-                      } float-end`}
+                      } svg-end`}
                     ></i>
                   )}
                 </a>
