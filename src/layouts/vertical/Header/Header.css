@@ -84,6 +84,27 @@
   .menu-trigger-open .lines:after {
     transform: rotate(-45deg);
   }
+  .btn-topbar {
+    height: 42px;
+    width: 42px;
+  }
+  
+  @media (max-width: 360px) {
+    .btn-topbar {
+      height: 36px;
+      width: 36px;
+    }
+  }
+  
+  .navbar-header .btn-topbar {
+    color: #e9ecef;
+  }
+  
+  .navbar-header .btn-topbar:hover,
+  .navbar-header .btn-topbar:focus {
+    background-color: rgba(255, 255, 255, 0.07); /* Assuming $white refers to #ffffff */
+    color: #ffffff; /* Assuming $white refers to #ffffff */
+  }
   
 
   @media (min-width: 768px){

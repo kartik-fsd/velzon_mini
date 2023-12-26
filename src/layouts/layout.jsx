@@ -1,4 +1,4 @@
-import menuItems from "./Data/data";
+import menuItems from "../Data/data";
 import VerticalSidebar from "./vertical";
 import logoLight from "../assets/images/logo-light.png";
 import "./layout.css";
