@@ -1,0 +1,39 @@
+/* Style for the sidebar header */
+.sidebar-header {
+  font-weight: bold;
+  color: #cfd3d3f0; /* Link text color */
+  margin-bottom: 15px; /* Spacing at the bottom of the header */
+}
+
+/* Style for the sidebar links */
+.nav.flex-column li a {
+  display: block;
+  padding: 10px;
+  color: #cfd3d3f0; 
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease; 
+}
+
+/* Hover effect for sidebar links */
+.nav.flex-column li a:hover {
+  color: #ffffff; /* Change text color on hover */
+}
+
+/* Adjust bullet points */
+.bullet {
+  margin: 10px;
+}
+
+/* Adjust bullet points */
+.bullet {
+  margin : 10px;
+  font-size: 1.05rem;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}
