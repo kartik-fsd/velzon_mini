@@ -24,7 +24,10 @@
   font-size: .9375rem;
   font-family: hkgrotesk,sans-serif;
 }
-
+.nav-sm .nav-link{
+  font-size: .813rem;
+  padding: 0.55rem 1.5rem!important
+}
 /* Hover effect for sidebar links */
 
 .nav-link:hover {
