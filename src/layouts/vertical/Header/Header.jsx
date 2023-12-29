@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 import SearchOption from "../Search/search";
+import LanguageDropDown from "../../../common/LanguageDropDown";
 
 function Header() {
   const [isActive, setIsActive] = useState(false);
@@ -30,7 +31,9 @@ function Header() {
               <SearchOption/>
             </div>
 
-            <div className="d-flex align-items-center"></div>
+            <div className="d-flex align-items-center">
+              <LanguageDropDown/>
+            </div>
           </div>
         </div>
       </header>

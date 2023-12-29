@@ -1,0 +1,67 @@
+button,
+a {
+    outline: none !important;
+    position: relative;
+}
+
+.btn {
+    box-shadow: none; 
+}
+
+.btn:hover,
+.btn.active,
+.btn:focus,
+.btn:active,
+.btn.show {
+    border-color: transparent;
+}
+
+
+.btn-rounded {
+    border-radius: 30px;
+}
+
+.btn-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(2 * 0.5rem + 1.5em + 2 * 2px);
+    width: calc(2 * 0.9rem + 1.5em + 2 * 2px);
+    padding: 0;
+}
+
+.btn-icon i,
+.btn-icon svg,
+.btn-icon img {
+    vertical-align: middle;
+}
+
+.btn-topbar {
+    height: 42px;
+    width: 42px;
+}
+
+@media (max-width: 360px) {
+    .btn-topbar {
+        height: 36px;
+        width: 36px;
+    }
+}
+
+.btn-ghost-secondary {
+    color:#878a99;
+}
+.header-item {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.navbar-header .btn-topbar {
+    color: #b0c4d9;
+}
+
+.navbar-header .btn-topbar:hover,
+.navbar-header .btn-topbar:focus {
+    background-color: rgba(255, 255, 255, 0.07); 
+    color: #fff; 
+}
