@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import SearchOption from "../Search/search";
 import LanguageDropDown from "../../../common/LanguageDropDown";
+import WebAppsDropdown from "../../../common/WebDropdown";
 
 function Header() {
   const [isActive, setIsActive] = useState(false);
@@ -33,6 +34,7 @@ function Header() {
 
             <div className="d-flex align-items-center">
               <LanguageDropDown/>
+              <WebAppsDropdown/>
             </div>
           </div>
         </div>

@@ -1,36 +1,68 @@
-import { useState } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-import flag from "../assets/flags/select2/ak.png";
+import React, { useEffect, useState } from 'react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { get } from "lodash";
+
+//i18n
+import i18n from "../i18n";
+import languages from "./languages";
+
 import "./Dropdown.css"
 
-function LanguageDropDown() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+const LanguageDropdown = () => {
+    // Declare a new state variable, which we'll call "menu"
+    const [selectedLang, setSelectedLang] = useState("");
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
-  return (
-    <>
-      <Dropdown isOpen={dropdownOpen} toggle={toggle} className="ms-1 topbar-head-dropdown header-item">
-      <DropdownToggle className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" tag="button">
-          <img src={flag} className="rounded" alt="language selector"  height="20"/>
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem>Some Action</DropdownItem>
-          <DropdownItem text>Dropdown Item Text</DropdownItem>
-          <DropdownItem disabled>Action (disabled)</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Foo Action</DropdownItem>
-          <DropdownItem>Bar Action</DropdownItem>
-          <DropdownItem>Quo Action</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    </>
-  );
-}
+    useEffect(() => {
+        const currentLanguage = localStorage.getItem("I18N_LANGUAGE");
+        setSelectedLang(currentLanguage);
+    }, []);
 
-export default LanguageDropDown;
+    const changeLanguageAction = lang => {
+        //set language as i18n
+        i18n.changeLanguage(lang);
+        localStorage.setItem("I18N_LANGUAGE", lang);
+        setSelectedLang(lang);
+    };
+
+
+    const [isLanguageDropdown, setIsLanguageDropdown] = useState(false);
+    const toggleLanguageDropdown = () => {
+        setIsLanguageDropdown(!isLanguageDropdown);
+    };
+    return (
+        <React.Fragment>
+            <Dropdown isOpen={isLanguageDropdown} toggle={toggleLanguageDropdown} className="ms-1 topbar-head-dropdown header-item">
+                <DropdownToggle className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" tag="button">
+                    <img
+                        src={get(languages, `${selectedLang}.flag`)}
+                        alt="Header Language"
+                        height="20"
+                        className="rounded"
+                    />
+                </DropdownToggle>
+                <DropdownMenu className="notify-item language py-2">
+                    {Object.keys(languages).map(key => (
+                        <DropdownItem
+                            key={key}
+                            onClick={() => changeLanguageAction(key)}
+                            className={`notify-item ${selectedLang === key ? "active" : "none"
+                                }`}
+                        >
+                            <img
+                                src={get(languages, `${key}.flag`)}
+                                alt="Skote"
+                                className="me-2 rounded"
+                                height="18"
+                            />
+                            <span className="align-middle">
+                                {get(languages, `${key}.label`)}
+                            </span>
+                        </DropdownItem>
+                    ))}
+                </DropdownMenu>
+            </Dropdown>
+        </React.Fragment>
+    );
+};
+
+export default LanguageDropdown;
